@@ -18,6 +18,19 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Command-Line Arguments
+- `-p`, `--path` (required): Path to the directory you want to monitor and clean.
+- `-s`, `--seconds` (optional): Timeout in seconds after each directory check. Default is 15 seconds.
+- `-t`,`--time` (optional): Hour after which the directory should be cleaned (24-hour format). This argument sets the time for the daily cleanup schedule. Default is 22:00.
+
+### Calling the Help Menu
+To see all available command-line options and get general information about the script, use the `-h` or `--help` argument:
+```
+python CheckDir.py -h
+
+python CheckDir.py --help
+```
+
 ### Using with Python
 To run the script with Python, use the following command:
 ```
