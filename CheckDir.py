@@ -1,8 +1,6 @@
 import os
-import sys
 import time
 import traceback
-import ctypes
 import argparse
 import rarfile
 import shutil
@@ -14,9 +12,6 @@ from datetime import datetime
 from glob import glob
 from time import sleep
 from OpenSSL import crypto
-
-my_app_id = 'mycompany.myproduct.subproduct.version'  # arbitrary string
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
 
 
 def del_files(file):
