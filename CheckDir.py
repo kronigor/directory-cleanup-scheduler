@@ -19,17 +19,6 @@ my_app_id = 'mycompany.myproduct.subproduct.version'  # arbitrary string
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
 
 
-def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
-
-
 def del_files(file):
     """Deletes a file at the given path."""
     try:
@@ -192,7 +181,7 @@ def check_directory(path, seconds):
                 else:
                     sleep(seconds)
     except Exception:
-        with open(resource_path('./errors.log'), 'a') as f:
+        with open('./errors.log', 'a') as f:
             f.write('[Check]:\n')
             f.write('{}\n'.format(traceback.format_exc()))
         return
@@ -221,6 +210,6 @@ if __name__ == "__main__":
             schedule.every().hour.do(daily_cleanup, directory=args.path, hours=args.time)
             check_directory(path=args.path, seconds=args.seconds)
     except Exception:
-        with open(resource_path('./errors.log'), 'a') as f:
+        with open('./errors.log', 'a') as f:
             f.write('[MAIN] :\n')
             f.write('{}\n'.format(traceback.format_exc()))
