@@ -31,7 +31,7 @@ def del_files(file):
 
 def files_in_path(path, lst=None):
     """Gets a list of files in the specified directory. Returns a list of files."""
-    if not lst:
+    if lst is None:
         list_of_files = set()
     else:
         list_of_files = lst
