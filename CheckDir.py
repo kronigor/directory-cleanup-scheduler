@@ -115,7 +115,7 @@ def check_files(lst_files, path):
     flag = True
     for file in lst_files:
         flag = True
-        file_extension = os.path.splitext(file)[-1]
+        file_extension = os.path.splitext(file)[-1].lower()
         if file_extension in ('.zip', '.rar', '.7z', '.p7m'):
             if os.path.exists(file):
                 flag = functions[file_extension](file, flag)
