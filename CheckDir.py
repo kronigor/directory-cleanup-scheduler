@@ -166,8 +166,7 @@ def check_p7m(file, flag):
         p7data = f.read()
     try:
         crypto.load_pkcs7_data(crypto.FILETYPE_ASN1, p7data)
-    except Exception as e:
-        print(e)
+    except:
         flag = del_files(file)
     return flag
 
